@@ -7,8 +7,8 @@
 		<version>4.4.0.2</version>
   	</parent>
 	
-	<artifactId>arrowhead-application-skeleton-provider</artifactId>
-	<name>Arrowhead Provider Skeleton</name>
+	<artifactId>application-energy-provider</artifactId>
+	<name>Arrowhead Energy Provider</name>
 	
 	<build>
 		<plugins>
