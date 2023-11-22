@@ -24,10 +24,10 @@
 ### VS Code ###
 .vscode/
 wrapper
-/application-skeleton-provider/target
-/application-skeleton-consumer/target
-/application-skeleton-publisher/target
-/application-skeleton-subscriber/target
+/code/application-energy-provider/target
+#/application-skeleton-consumer/target
+#/application-skeleton-publisher/target
+#/application-skeleton-subscriber/target
 /mvnw
 /mvnw.cmd
 /.settings
