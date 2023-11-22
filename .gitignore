@@ -24,7 +24,7 @@
 ### VS Code ###
 .vscode/
 wrapper
-/code/application-energy-provider/target
+/code/application-energy-provider/target/
 #/application-skeleton-consumer/target
 #/application-skeleton-publisher/target
 #/application-skeleton-subscriber/target
