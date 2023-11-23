@@ -3,7 +3,7 @@
 	
 	<parent>
     	<groupId>eu.arrowhead</groupId>	
-		<artifactId>application-skeleton-java-spring</artifactId>
+		<artifactId>application-main</artifactId>
 		<version>4.4.0.2</version>
   	</parent>
 	

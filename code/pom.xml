@@ -9,11 +9,11 @@
 	</parent>
 	
 	<groupId>eu.arrowhead</groupId>	
-	<artifactId>application-skeleton-java-spring</artifactId>
+	<artifactId>application-main</artifactId>
 	<version>4.4.0.2</version>
 	<packaging>pom</packaging>
-	<name>application-skeleton-java-spring</name>
-	<description>Arrowhead Application Skeleton using Spring Boot</description>
+	<name>application-main</name>
+	<description>Arrowhead Application with energy self sufficient house. </description>
 	
 	<url>https://github.com/arrowhead-f/client-java-spring</url>
 	<licenses>
