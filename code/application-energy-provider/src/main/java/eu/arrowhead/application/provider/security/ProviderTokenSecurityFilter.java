@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider.security;
+package eu.arrowhead.application.provider.security;
 
 import java.security.PrivateKey;
 import java.security.PublicKey;

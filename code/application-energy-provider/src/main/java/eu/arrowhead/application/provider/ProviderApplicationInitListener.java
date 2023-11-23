@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider;
+package eu.arrowhead.application.provider;
 
 import java.io.IOException;
 import java.security.KeyStore;
@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 import ai.aitia.arrowhead.application.library.ArrowheadService;
 import ai.aitia.arrowhead.application.library.config.ApplicationInitListener;
 import ai.aitia.arrowhead.application.library.util.ApplicationCommonConstants;
-import eu.arrowhead.application.skeleton.provider.security.ProviderSecurityConfig;
+import eu.arrowhead.application.provider.security.ProviderSecurityConfig;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.Utilities;
 import eu.arrowhead.common.core.CoreSystem;

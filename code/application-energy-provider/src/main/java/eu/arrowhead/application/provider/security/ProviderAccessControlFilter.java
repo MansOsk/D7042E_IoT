@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider.security;
+package eu.arrowhead.application.provider.security;
 
 import java.util.Map;
 

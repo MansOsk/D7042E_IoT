@@ -25,6 +25,7 @@
 	
 	<modules>
 	    <module>application-energy-provider</module>
+		<module>application-energy-common</module>
   	</modules>
 	
 	<dependencies>

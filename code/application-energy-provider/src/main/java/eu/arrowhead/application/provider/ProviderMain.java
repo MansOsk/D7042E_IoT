@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider;
+package eu.arrowhead.application.provider;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

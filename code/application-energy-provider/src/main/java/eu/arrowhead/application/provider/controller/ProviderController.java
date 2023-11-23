@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider.controller;
+package eu.arrowhead.application.provider.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

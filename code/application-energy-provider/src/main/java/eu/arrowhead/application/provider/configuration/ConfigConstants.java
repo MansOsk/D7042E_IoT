@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider.configuration;
+package eu.arrowhead.application.provider.configuration;
 
 public class ConfigConstants {
 

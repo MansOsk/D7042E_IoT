@@ -1,4 +1,4 @@
-package eu.arrowhead.application.skeleton.provider.configuration;
+package eu.arrowhead.application.provider.configuration;
 
 import org.apache.coyote.http11.AbstractHttp11Protocol;
 import org.apache.logging.log4j.LogManager;
