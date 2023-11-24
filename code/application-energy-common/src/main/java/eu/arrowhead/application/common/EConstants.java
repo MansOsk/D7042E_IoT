@@ -1,12 +1,11 @@
 package eu.arrowhead.application.common;
 
-
 public class EConstants {
 
 	//=================================================================================================
 	// members
 	
-	public static final String BASE_PACKAGE = "eu.arrowhead";
+	public static final String BASE_PACKAGE = "ai.aitia";
 	
 	public static final String INTERFACE_SECURE = "HTTP-SECURE-XML";
 	public static final String INTERFACE_INSECURE = "HTTP-INSECURE-XML";
