@@ -1,5 +1,6 @@
 target/
 /client-skeleton-java-spring/
+/demos/
 !.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###

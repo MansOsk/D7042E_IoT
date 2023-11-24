@@ -15,6 +15,7 @@
 	<name>application-main</name>
 	<description>Arrowhead Application with energy self sufficient house. </description>
 	
+	<!-- Built using skeleton -->
 	<url>https://github.com/arrowhead-f/client-java-spring</url>
 	<licenses>
     	<license>
