@@ -50,5 +50,12 @@
 	      	</plugin>
 		</plugins>
 	</build>
+	<dependencies>
+  	<dependency>
+  		<groupId>eu.arrowhead</groupId>
+  		<artifactId>application-energy-common</artifactId>
+  		<version>4.4.0.2</version>
+  	</dependency>
+  </dependencies>
 	
 </project>
