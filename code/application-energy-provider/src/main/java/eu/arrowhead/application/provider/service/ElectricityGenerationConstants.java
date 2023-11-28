@@ -2,13 +2,13 @@ package eu.arrowhead.application.provider.service;
 
 public class ElectricityGenerationConstants {
 
-    final int nSolarPanels = 12;
+    static final int N_SOLARPANELS = 12;
 
-    final float electricity = 2;
+    static final float ELECTRICITY = 2;
 
-    final String type = "kW/h";
+    static final String TYPE = "kW/h";
 
-    final float minEfficiency = 0.7f;
-    final float maxEfficiency = 1.2f;
+    static final float MIN_EFFICIENCY = 0.7f;
+    static final float MAX_EFFICIENCY = 1.2f;
     
 }

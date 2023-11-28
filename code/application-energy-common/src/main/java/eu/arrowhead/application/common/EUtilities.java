@@ -1,16 +1,13 @@
 package eu.arrowhead.application.common;
 
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-
 public class EUtilities {
 	
 	//=================================================================================================
 	// methods
 
 	//-------------------------------------------------------------------------------------------------
-	public static long nowUTCSeconds() {
-		return LocalDateTime.now().toEpochSecond(ZoneOffset.UTC);
+	public static long nowSeconds() {
+		return System.currentTimeMillis() / 1000;
 	}
 	
 	//=================================================================================================
