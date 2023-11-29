@@ -13,7 +13,7 @@ public class EGenerationPayload implements Serializable{
      private String type;
 
     //-------------------------------------------------------------------------------------------------	
-    private long hours;
+    private long days;
 
     //=================================================================================================
 	// methods
@@ -22,10 +22,10 @@ public class EGenerationPayload implements Serializable{
     public EGenerationPayload(){}
 
     //-------------------------------------------------------------------------------------------------	
-    public EGenerationPayload(final float electricity, final String type, final long hours){
+    public EGenerationPayload(final float electricity, final String type, final long days){
         this.electricity = electricity;
         this.type = type;
-            this.hours = hours;
+            this.days = days;
     }
     //--------------------------------------------GET--------------------------------------------------
     public float getElectricity(){
@@ -34,8 +34,8 @@ public class EGenerationPayload implements Serializable{
     public String getType(){
         return this.type;
     }
-    public long getHours(){
-        return this.hours;
+    public long getDays(){
+        return this.days;
     }
 
     //--------------------------------------------SET--------------------------------------------------
@@ -45,7 +45,7 @@ public class EGenerationPayload implements Serializable{
     public void setType(String type){
         this.type = type;
     }
-     public void setHours(final int hours){
-        this.hours = hours;
+     public void setDays(final int hours){
+        this.days = hours;
     }  
 }
