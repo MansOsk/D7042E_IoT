@@ -25,8 +25,11 @@
   	</licenses>
 	
 	<modules>
-	    <module>application-energy-provider</module>
 		<module>application-energy-common</module>
+	    <module>application-energy-provider</module>
+		<module>application-energy-consumer</module>
+		<module>application-energy-grid</module>
+		<module>application-energy-house</module>
   	</modules>
 	
 	<dependencies>
