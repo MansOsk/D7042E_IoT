@@ -92,36 +92,36 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 		if (sslEnabled && tokenSecurityFilterEnabled) {
 			//Register services into ServiceRegistry
 			final ServiceRegistryRequestDTO energyService1 = createServiceRegistryRequest(
-				EConstants.ELECTRICITY_GENERATION_SERVICE, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_URI, 
+				EConstants.ELECTRICITY_GENERATION, 
+				EConstants.ELECTRICITY_GENERATION_URI, 
 				HttpMethod.GET
 			);
 			arrowheadService.forceRegisterServiceToServiceRegistry(energyService1);
-			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE);
+			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION);
 
 			final ServiceRegistryRequestDTO energyService2 = createServiceRegistryRequest(
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START_URI, 
+				EConstants.ELECTRICITY_GENERATION_START, 
+				EConstants.ELECTRICITY_GENERATION_START_URI, 
 				HttpMethod.POST
 			);
 			arrowheadService.forceRegisterServiceToServiceRegistry(energyService2);
-			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE_START);
+			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_START);
 
 			final ServiceRegistryRequestDTO energyService3 = createServiceRegistryRequest(
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START_TIME, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START_TIME_URI, 
+				EConstants.ELECTRICITY_GENERATION_START_TIME, 
+				EConstants.ELECTRICITY_GENERATION_START_TIME_URI, 
 				HttpMethod.POST
 			);
 			arrowheadService.forceRegisterServiceToServiceRegistry(energyService3);
-			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE_START);
+			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_START);
 
 			final ServiceRegistryRequestDTO energyService4 = createServiceRegistryRequest(
-				EConstants.ELECTRICITY_GENERATION_SERVICE_STOP, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_STOP_URI, 
+				EConstants.ELECTRICITY_GENERATION_STOP, 
+				EConstants.ELECTRICITY_GENERATION_STOP_URI, 
 				HttpMethod.POST
 			);
 			arrowheadService.forceRegisterServiceToServiceRegistry(energyService4);
-			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE_STOP);
+			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_STOP);
 		}
 	}
 	
@@ -130,28 +130,28 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 	public void customDestroy() {
 		if (sslEnabled && tokenSecurityFilterEnabled) {
 			arrowheadService.unregisterServiceFromServiceRegistry(
-				EConstants.ELECTRICITY_GENERATION_SERVICE, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_URI
+				EConstants.ELECTRICITY_GENERATION, 
+				EConstants.ELECTRICITY_GENERATION_URI
 			);
-			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE);
+			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION);
 
 			arrowheadService.unregisterServiceFromServiceRegistry(
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START_URI
+				EConstants.ELECTRICITY_GENERATION_START, 
+				EConstants.ELECTRICITY_GENERATION_START_URI
 			);
-			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE_START);
+			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_START);
 
 			arrowheadService.unregisterServiceFromServiceRegistry(
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START_TIME, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_START_TIME_URI
+				EConstants.ELECTRICITY_GENERATION_START_TIME, 
+				EConstants.ELECTRICITY_GENERATION_START_TIME_URI
 			);
-			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE_START);
+			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_START);
 
 			arrowheadService.unregisterServiceFromServiceRegistry(
-				EConstants.ELECTRICITY_GENERATION_SERVICE_STOP, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_STOP_URI
+				EConstants.ELECTRICITY_GENERATION_STOP, 
+				EConstants.ELECTRICITY_GENERATION_STOP_URI
 			);
-			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE_STOP);
+			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_STOP);
 		}
 	}
 	

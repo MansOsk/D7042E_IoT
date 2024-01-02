@@ -30,7 +30,7 @@ public class ElectricityProviderController {
 	// methods
 
 	//-------------------------------------------------------------------------------------------------	
-	@GetMapping(path = EConstants.ELECTRICITY_GENERATION_SERVICE_URI)
+	@GetMapping(path = EConstants.ELECTRICITY_GENERATION_URI)
 	@ResponseBody public EGenerationPayload getGeneratedElectricity() 
 		throws IOException, URISyntaxException {
 			if (! electricityGenerationService.isStarted()) {
@@ -40,7 +40,7 @@ public class ElectricityProviderController {
 	}
 
 	//-------------------------------------------------------------------------------------------------	
-	@PostMapping(path = EConstants.ELECTRICITY_GENERATION_SERVICE_START_URI)		
+	@PostMapping(path = EConstants.ELECTRICITY_GENERATION_START_URI)		
 	@ResponseBody public String startGeneratedElectricity() 
 		throws IOException, URISyntaxException {
 			long currentTime = EUtilities.nowSeconds();
@@ -51,7 +51,7 @@ public class ElectricityProviderController {
 				throw new BadPayloadException("Solar panels have already been started!");
 			}
 	}
-	@PostMapping(path = EConstants.ELECTRICITY_GENERATION_SERVICE_START_TIME_URI)	// From time.
+	@PostMapping(path = EConstants.ELECTRICITY_GENERATION_START_TIME_URI)	// From time.
 	@ResponseBody public String startParamGeneratedElectricity(
 		@PathVariable long time) 
 		throws IOException, URISyntaxException {
@@ -70,7 +70,7 @@ public class ElectricityProviderController {
 	}
 
 	//-------------------------------------------------------------------------------------------------	
-	@PostMapping(path = EConstants.ELECTRICITY_GENERATION_SERVICE_STOP_URI)
+	@PostMapping(path = EConstants.ELECTRICITY_GENERATION_STOP_URI)
 	@ResponseBody public String stopGeneratedElectricity() 
 		throws IOException, URISyntaxException {
 			if(electricityGenerationService.isStarted()){

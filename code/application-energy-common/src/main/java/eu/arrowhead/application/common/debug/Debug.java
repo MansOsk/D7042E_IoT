@@ -1,6 +1,7 @@
 package eu.arrowhead.application.common.debug;
 
 import eu.arrowhead.application.common.EConstants;
+import eu.arrowhead.common.Utilities;
 
 public class Debug {
     public static final void debug(){
@@ -21,6 +22,14 @@ public class Debug {
             debug();
             System.out.println(tag + " " + object.toString());
             endFormat();
+        }
+    }
+
+    public static void printOut(final Object object) {
+        if(EConstants.DEBUG){
+            debug();
+            System.out.println("{ARROWHEAD QUERY TO JSON}");
+            System.out.println(Utilities.toPrettyJson(Utilities.toJson(object)));
         }
     }
 

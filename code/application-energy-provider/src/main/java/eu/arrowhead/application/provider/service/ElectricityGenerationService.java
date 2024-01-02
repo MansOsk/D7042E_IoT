@@ -13,7 +13,7 @@ public class ElectricityGenerationService{
     //=================================================================================================
 	// members
 
-    private long startTime;
+    private long startTime = EUtilities.nowSeconds();
 
     //=================================================================================================
 	// methods

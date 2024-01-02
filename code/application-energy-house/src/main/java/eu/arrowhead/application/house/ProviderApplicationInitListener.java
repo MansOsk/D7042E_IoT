@@ -11,6 +11,7 @@ import java.util.HashMap;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.bouncycastle.jcajce.provider.asymmetric.EC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.event.ContextRefreshedEvent;
@@ -21,6 +22,7 @@ import ai.aitia.arrowhead.application.library.ArrowheadService;
 import ai.aitia.arrowhead.application.library.config.ApplicationInitListener;
 import ai.aitia.arrowhead.application.library.util.ApplicationCommonConstants;
 import eu.arrowhead.application.common.EConstants;
+import eu.arrowhead.application.common.debug.Debug;
 import eu.arrowhead.application.house.security.ProviderSecurityConfig;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.Utilities;
@@ -92,13 +94,31 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 
 		if (sslEnabled && tokenSecurityFilterEnabled) {
 			//Register services into ServiceRegistry
-			/* final ServiceRegistryRequestDTO energyService1 = createServiceRegistryRequest(
-				EConstants.ELECTRICITY_GENERATION_SERVICE, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_URI, 
+			final ServiceRegistryRequestDTO energyService1 = createServiceRegistryRequest(
+				EConstants.GET_ELECTRICITY_HOUSE_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_HOUSE_URI, 
 				HttpMethod.GET
 			);
 			arrowheadService.forceRegisterServiceToServiceRegistry(energyService1);
-			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE); */
+			logger.info("Service registered: {}", EConstants.GET_ELECTRICITY_HOUSE_SERVICE_DEFINTION);
+
+			final ServiceRegistryRequestDTO energyService2 = createServiceRegistryRequest(
+				EConstants.POST_ELECTRICITY_HOUSE_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_HOUSE_URI, 
+				HttpMethod.POST
+			);
+			energyService2.getMetadata().put(EConstants.REQUEST_PARAM_KEY_ELECTRICITY, EConstants.REQUEST_PARAM_ELECTRICITY);
+			arrowheadService.forceRegisterServiceToServiceRegistry(energyService2);
+			logger.info("Service registered: {}", EConstants.POST_ELECTRICITY_HOUSE_SERVICE_DEFINTION);
+
+			final ServiceRegistryRequestDTO energyService3 = createServiceRegistryRequest(
+				EConstants.PUT_ELECTRICITY_HOUSE_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_HOUSE_URI, 
+				HttpMethod.PUT
+			);
+			energyService3.getMetadata().put(EConstants.REQUEST_PARAM_KEY_ELECTRICITY, EConstants.REQUEST_PARAM_ELECTRICITY);
+			arrowheadService.forceRegisterServiceToServiceRegistry(energyService3);
+			logger.info("Service registered: {}", EConstants.PUT_ELECTRICITY_HOUSE_SERVICE_DEFINTION);
 		} 
 	}
 	
@@ -106,11 +126,23 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 	@Override
 	public void customDestroy() {
 		if (sslEnabled && tokenSecurityFilterEnabled) {
-			/* arrowheadService.unregisterServiceFromServiceRegistry(
-				EConstants.ELECTRICITY_GENERATION_SERVICE, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_URI
+			arrowheadService.unregisterServiceFromServiceRegistry(
+				EConstants.GET_ELECTRICITY_HOUSE_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_HOUSE_URI
 			);
-			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE); */
+			logger.info("Service unregistered: {}", EConstants.GET_ELECTRICITY_HOUSE_SERVICE_DEFINTION);
+
+			arrowheadService.unregisterServiceFromServiceRegistry(
+				EConstants.POST_ELECTRICITY_HOUSE_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_HOUSE_URI
+			);
+			logger.info("Service unregistered: {}", EConstants.POST_ELECTRICITY_HOUSE_SERVICE_DEFINTION);
+
+			arrowheadService.unregisterServiceFromServiceRegistry(
+				EConstants.PUT_ELECTRICITY_HOUSE_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_HOUSE_URI
+			);
+			logger.info("Service unregistered: {}", EConstants.PUT_ELECTRICITY_HOUSE_SERVICE_DEFINTION);
 		}
 	}
 	

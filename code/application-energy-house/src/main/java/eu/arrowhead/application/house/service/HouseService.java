@@ -9,6 +9,7 @@ public class HouseService{
     
     //=================================================================================================
 	// members
+    private float battery;
 
     //=================================================================================================
 	// methods
@@ -16,6 +17,14 @@ public class HouseService{
     //-------------------------------------------------------------------------------------------------
     public EGenerationPayload simulate(){
         return null;
+    }
+
+    public void setBattery(float electricity){
+        this.battery = electricity;
+    }
+
+    public float getBattery(){
+        return this.battery;
     }
 
 }

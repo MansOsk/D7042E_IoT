@@ -38,6 +38,6 @@ public class ConsumerApplicationInitListener extends ApplicationInitListener {
 	//-------------------------------------------------------------------------------------------------
 	@Override
 	public void customDestroy() {
-		//TODO: implement here any custom behavior on application shutdown
+
 	}
 }
