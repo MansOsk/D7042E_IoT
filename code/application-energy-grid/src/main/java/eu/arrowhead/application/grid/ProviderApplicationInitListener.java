@@ -91,13 +91,14 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 		// Only register if security enabled. 
 		if (sslEnabled && tokenSecurityFilterEnabled) {
 			//Register services into ServiceRegistry
-			/* final ServiceRegistryRequestDTO energyService1 = createServiceRegistryRequest(
-				EConstants.ELECTRICITY_GENERATION_SERVICE, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_URI, 
-				HttpMethod.GET
+
+			final ServiceRegistryRequestDTO energyService = createServiceRegistryRequest(
+				EConstants.POST_ELECTRICITY_GRID_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_GRID_URI, 
+				HttpMethod.POST
 			);
-			arrowheadService.forceRegisterServiceToServiceRegistry(energyService1);
-			logger.info("Service registered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE); */
+			energyService.getMetadata().put(EConstants.REQUEST_PARAM_KEY_ELECTRICITY, EConstants.REQUEST_PARAM_ELECTRICITY);
+			arrowheadService.forceRegisterServiceToServiceRegistry(energyService);
 		}
 	}
 	
@@ -105,11 +106,11 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 	@Override
 	public void customDestroy() {
 		if (sslEnabled && tokenSecurityFilterEnabled) {
-			/* arrowheadService.unregisterServiceFromServiceRegistry(
-				EConstants.ELECTRICITY_GENERATION_SERVICE, 
-				EConstants.ELECTRICITY_GENERATION_SERVICE_URI
+			arrowheadService.unregisterServiceFromServiceRegistry(
+				EConstants.POST_ELECTRICITY_GRID_SERVICE_DEFINTION, 
+				EConstants.ELECTRICITY_GRID_URI
 			);
-			logger.info("Service unregistered: {}", EConstants.ELECTRICITY_GENERATION_SERVICE); */
+			logger.info("Service unregistered: {}", EConstants.POST_ELECTRICITY_GRID_SERVICE_DEFINTION); 
 		}
 	}
 	

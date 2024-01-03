@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import eu.arrowhead.application.common.EConstants;
 import eu.arrowhead.application.common.EUtilities;
 import eu.arrowhead.application.common.debug.Debug;
-import eu.arrowhead.application.common.payload.EGenerationPayload;
+import eu.arrowhead.application.common.payload.EPayload;
 import eu.arrowhead.application.provider.service.ElectricityGenerationService;
 import eu.arrowhead.common.exception.BadPayloadException;
 
@@ -31,12 +31,17 @@ public class ElectricityProviderController {
 
 	//-------------------------------------------------------------------------------------------------	
 	@GetMapping(path = EConstants.ELECTRICITY_GENERATION_URI)
-	@ResponseBody public EGenerationPayload getGeneratedElectricity() 
+	@ResponseBody public EPayload getGeneratedElectricity() 
 		throws IOException, URISyntaxException {
 			if (! electricityGenerationService.isStarted()) {
 				throw new BadPayloadException("Solar panels are stopped!");
 			}
-			return electricityGenerationService.simulate();
+			EPayload generation = electricityGenerationService.simulate();
+
+			Debug.debug("PRODUCTION= ", generation.getElectricity() + " " + generation.getType());
+			Debug.debug("#####","######");
+
+			return generation;
 	}
 
 	//-------------------------------------------------------------------------------------------------	

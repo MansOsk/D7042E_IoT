@@ -2,7 +2,7 @@ package eu.arrowhead.application.provider.service;
 
 public class ElectricityGenerationConstants {
 
-    static final int N_SOLARPANELS = 12;
+    static final int N_SOLARPANELS = 16;
 
     static final float ELECTRICITY = 2;
 

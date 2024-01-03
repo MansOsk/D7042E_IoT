@@ -2,7 +2,7 @@ package eu.arrowhead.application.common.payload;
 
 import java.io.Serializable;
 
-public class EGenerationPayload implements Serializable{
+public class EPayload implements Serializable{
 
     //=================================================================================================
 	// members
@@ -19,10 +19,10 @@ public class EGenerationPayload implements Serializable{
 	// methods
 
     //-------------------------------------------------------------------------------------------------	
-    public EGenerationPayload(){}
+    public EPayload(){}
 
     //-------------------------------------------------------------------------------------------------	
-    public EGenerationPayload(final float electricity, final String type, final long days){
+    public EPayload(final float electricity, final String type, final long days){
         this.electricity = electricity;
         this.type = type;
             this.days = days;

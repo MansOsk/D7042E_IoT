@@ -5,7 +5,7 @@ import java.util.Random;
 import org.springframework.stereotype.Component;
 
 import eu.arrowhead.application.common.EUtilities;
-import eu.arrowhead.application.common.payload.EGenerationPayload;
+import eu.arrowhead.application.common.payload.EPayload;
 
 @Component
 public class ElectricityGenerationService{
@@ -19,7 +19,7 @@ public class ElectricityGenerationService{
 	// methods
 
     //-------------------------------------------------------------------------------------------------
-    public EGenerationPayload simulate(){
+    public EPayload simulate(){
         long hours = EUtilities.nowSeconds() - startTime;
 
         float electricity = ElectricityGenerationConstants.ELECTRICITY;
@@ -31,7 +31,7 @@ public class ElectricityGenerationService{
         electricity = electricity * n_solarpanels * hours;
         electricity *= randomizeEfficiency(min_efficiency, max_efficiency);
 
-        EGenerationPayload payload = new EGenerationPayload(electricity, type, hours);
+        EPayload payload = new EPayload(electricity, type, hours);
 
         startTime = EUtilities.nowSeconds();
 

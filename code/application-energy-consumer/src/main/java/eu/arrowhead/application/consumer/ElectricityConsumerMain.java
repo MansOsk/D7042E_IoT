@@ -17,6 +17,7 @@ import org.apache.logging.log4j.Logger;
 import ai.aitia.arrowhead.application.library.ArrowheadService;
 import eu.arrowhead.application.common.EConstants;
 import eu.arrowhead.application.common.debug.Debug;
+import eu.arrowhead.application.consumer.service.ElectricityConsumptionConstants;
 import eu.arrowhead.application.consumer.service.ElectricityConsumptionService;
 import eu.arrowhead.common.CommonConstants;
 import eu.arrowhead.common.SSLProperties;
@@ -28,6 +29,7 @@ import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
 import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.exception.BadPayloadException;
 import eu.arrowhead.common.exception.InvalidParameterException;
 
 @SpringBootApplication
@@ -48,6 +50,8 @@ public class ElectricityConsumerMain implements ApplicationRunner{
 	OrchestrationResultDTO orchestrationResult;
 
 	ElectricityConsumptionService service;
+
+	private float previousResponse;
 
 	//=================================================================================================
 	// methods
@@ -77,7 +81,11 @@ public class ElectricityConsumerMain implements ApplicationRunner{
 				null,
 				queryParamElectricity
 			);
-			Debug.debug(response);
+			Debug.debug("CONSUMPTION= ", consumption + " " + ElectricityConsumptionConstants.TYPE);
+			Debug.debug("BATTERY= ", response + " " + ElectricityConsumptionConstants.TYPE);
+			Debug.debug("NET_CHANGE= ", response-previousResponse + " " + ElectricityConsumptionConstants.TYPE);
+			Debug.debug("#####","######");
+			previousResponse = response;
 		}
     }
 

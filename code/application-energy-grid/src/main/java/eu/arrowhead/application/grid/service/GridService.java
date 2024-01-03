@@ -1,9 +1,11 @@
 package eu.arrowhead.application.grid.service;
 
+import java.util.Random;
+
 import org.springframework.stereotype.Component;
 
 import eu.arrowhead.application.common.EUtilities;
-import eu.arrowhead.application.common.payload.EGenerationPayload;
+import eu.arrowhead.application.common.payload.EPayload;
 
 @Component
 public class GridService{
@@ -15,7 +17,13 @@ public class GridService{
 	// methods
 
     //-------------------------------------------------------------------------------------------------
-    public EGenerationPayload simulate(){
-        return null;
+    public float simulate(float electricity){
+        float price = randomizeEfficiency(GridConstants.MIN_PRICE, GridConstants.MAX_PRICE);
+        return price * electricity;
+    }
+
+    private float randomizeEfficiency(float min, float max){
+        Random rand = new Random();
+        return min + rand.nextFloat() * (max-min);
     }
 }

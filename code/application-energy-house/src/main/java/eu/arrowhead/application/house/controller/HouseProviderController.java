@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ai.aitia.arrowhead.application.library.ArrowheadService;
 import eu.arrowhead.application.common.EConstants;
 import eu.arrowhead.application.common.debug.Debug;
-import eu.arrowhead.application.common.payload.EGenerationPayload;
+import eu.arrowhead.application.common.payload.EPayload;
 import eu.arrowhead.application.house.ProviderApplicationInitListener;
 import eu.arrowhead.application.house.service.HouseService;
 import eu.arrowhead.common.SSLProperties;
@@ -29,6 +29,7 @@ import eu.arrowhead.common.dto.shared.OrchestrationResultDTO;
 import eu.arrowhead.common.dto.shared.ServiceInterfaceResponseDTO;
 import eu.arrowhead.common.dto.shared.ServiceQueryFormDTO;
 import eu.arrowhead.common.exception.ArrowheadException;
+import eu.arrowhead.common.exception.BadPayloadException;
 import eu.arrowhead.common.exception.InvalidParameterException;
 
 @RestController
@@ -38,17 +39,17 @@ public class HouseProviderController {
 	// members
 
 	@Autowired
-	HouseService houseService;
-
-	@Autowired
 	public SSLProperties sslProperties;
 
 	@Autowired
 	public ArrowheadService arrowheadService;
 
+	@Autowired
+	HouseService houseService;
+
 	private Logger logger = LogManager.getLogger(ProviderApplicationInitListener.class);
 
-	OrchestrationResultDTO orchestrationResult;
+	OrchestrationResultDTO productionOrchestration;
 
 	//=================================================================================================
 	// methods
@@ -78,29 +79,30 @@ public class HouseProviderController {
 			float total = Float.parseFloat(electricity);
 			float currentCharge = houseService.getBattery();
 			houseService.setBattery(currentCharge + total);
-			Debug.debug("Current battery charge after consumption: ", houseService.getBattery());
 
-			if(orchestrationResult == null){
-				orchestrationResult = orchestrate(EConstants.ELECTRICITY_GENERATION);	
+			if(productionOrchestration == null){
+				productionOrchestration = orchestrate(EConstants.ELECTRICITY_GENERATION);	
 			}
 
-			final String token = orchestrationResult.getAuthorizationTokens() == null ? null : orchestrationResult.getAuthorizationTokens().get(getInterface());
-
-			EGenerationPayload response = arrowheadService.consumeServiceHTTP(EGenerationPayload.class, 
-				HttpMethod.valueOf(orchestrationResult.getMetadata().get(EConstants.HTTP_METHOD)), 
-				orchestrationResult.getProvider().getAddress(), 
-				orchestrationResult.getProvider().getPort(), 
-				orchestrationResult.getServiceUri(),
-				getInterface(),
-				token,
-				null
-			);
-			Debug.debug(response);
-
+			final String token = productionOrchestration.getAuthorizationTokens() == null ? null : productionOrchestration.getAuthorizationTokens().get(getInterface());
 			currentCharge = houseService.getBattery();
-			houseService.setBattery(currentCharge + response.getElectricity());
-			
-			Debug.debug("Current battery charge after provider: ", houseService.getBattery());
+
+			try{
+				EPayload response = arrowheadService.consumeServiceHTTP(EPayload.class, 
+					HttpMethod.valueOf(productionOrchestration.getMetadata().get(EConstants.HTTP_METHOD)), 
+					productionOrchestration.getProvider().getAddress(), 
+					productionOrchestration.getProvider().getPort(), 
+					productionOrchestration.getServiceUri(),
+					getInterface(),
+					token,
+					null
+				);
+				currentCharge = houseService.getBattery();
+				houseService.setBattery(currentCharge + response.getElectricity());
+				
+			}catch(BadPayloadException e){
+
+			}
 
 			return houseService.getBattery();
 	}

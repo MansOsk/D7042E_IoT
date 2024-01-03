@@ -16,10 +16,5 @@ public class ProviderAccessControlFilter extends AccessControlFilter {
 	@Override
 	protected void checkClientAuthorized(final String clientCN, final String method, final String requestTarget, final String requestJSON, final Map<String,String[]> queryParams) {
 		super.checkClientAuthorized(clientCN, method, requestTarget, requestJSON, queryParams);
-		
-		//TODO: implement here your custom access filter if any further. No implemented currently.
-		/*
-		 * Probably nothing needed here. 
-		 */
 	}
 }

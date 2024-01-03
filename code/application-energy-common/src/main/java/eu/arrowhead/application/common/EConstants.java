@@ -6,7 +6,7 @@ public class EConstants {
 	// members
 	
 	public static final String BASE_PACKAGE = "ai.aitia";
-	public static final boolean DEBUG = true;			  //IMPORTANT, ENABLE PRINTOUTS OBJECTS AND DATA 
+	public static final boolean DEBUG = true;			  //IMPORTANT, ENABLE PRINTOUTS THROUGHOUT ALL.
 
 	//-------------------------------------------------------------------------------------------------
 	public static final String ELECTRICITY_GENERATION = "electricity-generation";
@@ -29,15 +29,21 @@ public class EConstants {
 	public static final String POST_ELECTRICITY_HOUSE_SERVICE_DEFINTION = "post-electricity-house";
 	public static final String PUT_ELECTRICITY_HOUSE_SERVICE_DEFINTION = "put-electricity-houose";
 
+	//-------------------------------------------------------------------------------------------------
+	public static final String ELECTRICITY_GRID = "electricity-grid";
+	public static final String ELECTRICITY_GRID_URI = "/electricity-grid";
+
+	public static final String POST_ELECTRICITY_GRID_SERVICE_DEFINTION = "post-electricity-grid";
 
 	//-------------------------------------------------------------------------------------------------
-
 	public static final String REQUEST_PARAM_TIME = "time";
+	public static final String REQUEST_PARAM_KEY_TIME = "request-param-time";
 
 	public static final String REQUEST_PARAM_ELECTRICITY = "electricity";
 	public static final String REQUEST_PARAM_KEY_ELECTRICITY = "request-param-electricity";
 
-	public static final long DELAY_TIME_SIM = 10l;
+	//-------------------------------------------------------------------------------------------------
+	public static final long DELAY_TIME_SIM = 10l;	// Just delaying electricity production upon start. 
 
 	public static final String INTERFACE_SECURE = "HTTP-SECURE-XML";
 	public static final String INTERFACE_INSECURE = "HTTP-INSECURE-XML";
