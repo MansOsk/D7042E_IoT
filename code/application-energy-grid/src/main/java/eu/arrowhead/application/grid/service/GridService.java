@@ -4,9 +4,6 @@ import java.util.Random;
 
 import org.springframework.stereotype.Component;
 
-import eu.arrowhead.application.common.EUtilities;
-import eu.arrowhead.application.common.payload.EPayload;
-
 @Component
 public class GridService{
     

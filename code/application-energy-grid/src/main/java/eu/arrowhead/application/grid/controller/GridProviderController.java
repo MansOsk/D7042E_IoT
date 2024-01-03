@@ -4,20 +4,15 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import eu.arrowhead.application.common.EConstants;
-import eu.arrowhead.application.common.EUtilities;
 import eu.arrowhead.application.common.debug.Debug;
-import eu.arrowhead.application.common.payload.EPayload;
 import eu.arrowhead.application.grid.service.GridConstants;
 import eu.arrowhead.application.grid.service.GridService;
-import eu.arrowhead.common.exception.BadPayloadException;
 
 @RestController
 public class GridProviderController {

@@ -1,7 +1,5 @@
 package eu.arrowhead.application.common;
 
-import eu.arrowhead.common.Utilities;
-
 public class EUtilities {
 	
 	//=================================================================================================

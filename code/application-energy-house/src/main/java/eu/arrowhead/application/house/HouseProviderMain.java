@@ -1,8 +1,6 @@
 package eu.arrowhead.application.house;
 
-import java.sql.Time;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
