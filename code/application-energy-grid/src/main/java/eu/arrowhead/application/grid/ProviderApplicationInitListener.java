@@ -81,7 +81,6 @@ public class ProviderApplicationInitListener extends ApplicationInitListener {
 			arrowheadService.updateCoreServiceURIs(CoreSystem.AUTHORIZATION);			
 		
 			setTokenSecurityFilter();
-		
 		}else {
 			logger.info("TokenSecurityFilter in not active");
 		}		
